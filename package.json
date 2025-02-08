@@ -1,7 +1,7 @@
 {
   "name": "pnpm-esbuild-node-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple Node.js API using ESBuild and Express with TypeScript Ready for any database",
   "main": "index.js",
   "scripts": {
     "start": "node ./build",

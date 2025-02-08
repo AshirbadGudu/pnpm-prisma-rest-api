@@ -1,0 +1,32 @@
+{
+  "name": "pnpm-esbuild-node-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "keywords": [
+    "pnpm",
+    "esbuild",
+    "node-api",
+    "nodejs",
+    "javascript",
+    "typescript",
+    "REST API",
+    "Express",
+    "JSON",
+    "JSON Web Token",
+    "JWT",
+    "Authentication",
+    "Authorization",
+    "Middleware",
+    "Error Handling",
+    "Validation",
+    "API Documentation"
+  ],
+  "author": "Ashirbad Panigrahi",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}

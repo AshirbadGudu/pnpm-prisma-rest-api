@@ -129,19 +129,50 @@ API_VERSION=v1
 
 ```
 .
-├── server/          # TypeScript source files
-│   ├── controllers/ # Request handlers
-│   ├── services/    # Business logic
+├── server/           # TypeScript source files
+│   ├── controllers/  # Request handlers
+│   │   ├── health.controller.ts
+│   │   └── user.controller.ts
+│   ├── middleware/   # Express middleware
+│   │   ├── error.middleware.ts
+│   │   ├── routes.middleware.ts
+│   │   ├── setup.middleware.ts
+│   │   └── validate.middleware.ts
 │   ├── routes/      # API routes
+│   │   ├── healths.route.ts
+│   │   └── users.route.ts
 │   ├── schemas/     # Validation schemas
-│   ├── middleware/  # Express middleware
-│   └── utils/       # Utility functions
+│   │   ├── health.schema.ts
+│   │   └── user.schema.ts
+│   ├── services/    # Business logic
+│   │   ├── health.service.ts
+│   │   └── user.service.ts
+│   ├── secrets/     # Environment and secrets management
+│   │   └── index.ts
+│   ├── utils/       # Utility functions
+│   │   ├── errors.ts
+│   │   └── password.ts
+│   └── index.ts     # Application entry point
 ├── scripts/         # Generator scripts
+│   ├── generators/  # Code generation utilities
+│   │   └── index.ts
+│   ├── make-controller.ts
+│   ├── make-resource.ts
+│   ├── make-route.ts
+│   ├── make-schema.ts
+│   └── make-service.ts
 ├── docs/           # Documentation
+│   └── route-setup.md
+├── test/           # API test files
+│   ├── healths.rest
+│   └── users.rest
 ├── build/          # Compiled JavaScript
 ├── .env            # Environment variables
 ├── .env.example    # Example environment file
+├── .gitignore      # Git ignore rules
 ├── nodemon.json    # Nodemon configuration
+├── package.json    # Project dependencies and scripts
+├── pnpm-lock.yaml  # PNPM lock file
 └── tsconfig.json   # TypeScript configuration
 ```
 

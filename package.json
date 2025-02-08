@@ -4,15 +4,16 @@
   "description": "A simple Node.js API using ESBuild and Express with TypeScript Ready for any database",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build",
-    "dev": "nodemon ./server/index.ts",
-    "build": "etsc",
+    "start": "node ./build/server",
+    "dev": "nodemon",
+    "build": "rimraf build && etsc",
+    "build:watch": "etsc --watch",
     "init:tsc": "tsc --init",
-    "make:resource": "ts-node ./scripts/make-resource.ts",
-    "make:controller": "ts-node ./scripts/make-controller.ts",
-    "make:service": "ts-node ./scripts/make-service.ts",
-    "make:schema": "ts-node ./scripts/make-schema.ts",
-    "make:route": "ts-node ./scripts/make-route.ts"
+    "make:resource": "etsc && node ./build/scripts/make-resource.js",
+    "make:controller": "etsc && node ./build/scripts/make-controller.js",
+    "make:service": "etsc && node ./build/scripts/make-service.js",
+    "make:schema": "etsc && node ./build/scripts/make-schema.js",
+    "make:route": "etsc && node ./build/scripts/make-route.js"
   },
   "keywords": [
     "pnpm",
@@ -45,7 +46,7 @@
     "esbuild": "^0.25.0",
     "esbuild-node-tsc": "^2.0.5",
     "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
+    "rimraf": "^6.0.1",
     "typescript": "^5.7.3"
   },
   "dependencies": {

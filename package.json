@@ -27,6 +27,7 @@
   ],
   "author": "Ashirbad Panigrahi",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
 }

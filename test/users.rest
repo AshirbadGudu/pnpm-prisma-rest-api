@@ -1,0 +1,47 @@
+### Get all users (default pagination)
+GET http://localhost:8025/api/v1/users
+
+### Get all users with pagination
+GET http://localhost:8025/api/v1/users?page=1&limit=5
+
+### Get deleted users
+GET http://localhost:8025/api/v1/users/deleted
+
+### Get deleted users with pagination
+GET http://localhost:8025/api/v1/users/deleted?page=1&limit=5
+
+### Get user by ID
+GET http://localhost:8025/api/v1/users/1
+
+### Create new user
+POST http://localhost:8025/api/v1/users
+Content-Type: application/json
+
+{
+  // Add your user data here
+}
+
+### Update user
+PUT http://localhost:8025/api/v1/users/1
+Content-Type: application/json
+
+{
+  // Add your user data here
+}
+
+### Partial update user
+PATCH http://localhost:8025/api/v1/users/1
+Content-Type: application/json
+
+{
+  // Add partial user data here
+}
+
+### Soft delete user
+DELETE http://localhost:8025/api/v1/users/1
+
+### Hard delete user (permanent)
+DELETE http://localhost:8025/api/v1/users/1/permanent
+
+### Recover deleted user
+POST http://localhost:8025/api/v1/users/1/recover

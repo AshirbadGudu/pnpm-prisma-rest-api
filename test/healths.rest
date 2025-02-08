@@ -1,0 +1,47 @@
+### Get all healths (default pagination)
+GET http://localhost:8025/api/v1/healths
+
+### Get all healths with pagination
+GET http://localhost:8025/api/v1/healths?page=1&limit=5
+
+### Get deleted healths
+GET http://localhost:8025/api/v1/healths/deleted
+
+### Get deleted healths with pagination
+GET http://localhost:8025/api/v1/healths/deleted?page=1&limit=5
+
+### Get health by ID
+GET http://localhost:8025/api/v1/healths/1
+
+### Create new health
+POST http://localhost:8025/api/v1/healths
+Content-Type: application/json
+
+{
+  // Add your health data here
+}
+
+### Update health
+PUT http://localhost:8025/api/v1/healths/1
+Content-Type: application/json
+
+{
+  // Add your health data here
+}
+
+### Partial update health
+PATCH http://localhost:8025/api/v1/healths/1
+Content-Type: application/json
+
+{
+  // Add partial health data here
+}
+
+### Soft delete health
+DELETE http://localhost:8025/api/v1/healths/1
+
+### Hard delete health (permanent)
+DELETE http://localhost:8025/api/v1/healths/1/permanent
+
+### Recover deleted health
+POST http://localhost:8025/api/v1/healths/1/recover

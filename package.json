@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node ./build",
+    "dev": "nodemon ./server/index.ts",
+    "build": "etsc",
+    "init:tsc": "tsc --init"
   },
   "keywords": [
     "pnpm",
@@ -28,9 +31,27 @@
   "author": "Ashirbad Panigrahi",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/http-errors": "^2.0.4",
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/nodemailer": "^6.4.17",
     "esbuild": "^0.25.0",
     "esbuild-node-tsc": "^2.0.5",
     "nodemon": "^3.1.9",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0",
+    "socket.io": "^4.8.1"
   }
 }

@@ -1,7 +1,6 @@
 {
-  "watch": ["server"],
-  "ignore": ["server/**/*.test.ts", "node_modules"],
-  "ext": "ts,mjs,js,json,graphql",
-  "exec": "etsc && node ./build/index.js",
-  "legacyWatch": true
+  "watch": ["server", "scripts"],
+  "ignore": ["**/*.test.ts", "node_modules", "build", ".git", "**/*.spec.ts"],
+  "ext": "ts,json",
+  "exec": "etsc && node ./build/server/index.js"
 }

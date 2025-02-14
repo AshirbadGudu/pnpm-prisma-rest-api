@@ -78,3 +78,31 @@ JWTs, access tokens, and bearer tokens are used in various scenarios, including 
 ## Conclusion
 
 JWTs, access tokens, and bearer tokens are essential components of modern web application security. [cite: 82] Understanding their nuances, implementation, and potential vulnerabilities is crucial for building secure and scalable applications. [cite: 83]
+
+## Works Cited
+
+1. en.wikipedia.org, accessed February 13, 2025, https://en.wikipedia.org/wiki/JSON_Web_Token#:~:text=JSON%20Web%20Token%20(JWT%2C%20suggested,or%20a%20public%2Fprivate%20key.
+2. OAuth vs JWT: Key Differences Explained | SuperTokens, accessed February 13, 2025, https://supertokens.com/blog/oauth-vs-jwt
+3. JSON Web Token (JWT) - IBM, accessed February 13, 2025, https://www.ibm.com/docs/en/cics-ts/6.x?topic=cics-json-web-token-jwt
+4. www.okta.com, accessed February 13, 2025, https://www.okta.com/identity-101/access-token/#:~:text=An%20access%20token%20is%20a,server%20to%20a%20user's%20device.
+5. Access tokens in the Microsoft identity platform, accessed February 13, 2025, https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens
+6. Bearer Token Overview - OSG Site Documentation, accessed February 13, 2025, https://osg-htc.org/docs/security/tokens/overview/
+7. api.aodocs.com, accessed February 13, 2025, https://api.aodocs.com/20-authentication/20-access-apis-with-bearer-tokens/#:~:text=In%20general%2C%20a%20Bearer%20token,strings%20in%20the%20JWT%20format
+8. JSON Web Token (JWT) - Cloudentity, accessed February 13, 2025, https://cloudentity.com/developers/basics/tokens/json-web-tokens/
+9. JSON Web Token (JWT) - GeeksforGeeks, accessed February 13, 2025, https://www.geeksforgeeks.org/json-web-token-jwt/
+10. What Is a JWT & How It Works - Descope, accessed February 13, 2025, https://www.descope.com/learn/post/jwt
+11. JSON Web Tokens - Auth0, accessed February 13, 2025, https://auth0.com/docs/secure/tokens/json-web-tokens
+12. JWT vs. Opaque Tokens - ZITADEL, accessed February 13, 2025, https://zitadel.com/blog/jwt-vs-opaque-tokens
+13. JWTs as refresh tokens, beside the JWT access token? - Information Security Stack Exchange, accessed February 13, 2025, https://security.stackexchange.com/questions/277209/jwts-as-refresh-tokens-beside-the-jwt-access-token
+14. How to create and implement Json Web Token (JWT) in node.js with express.js - Medium, accessed February 13, 2025, https://medium.com/@gb.usmanumar/how-to-create-and-implement-json-web-token-jwt-in-node-js-with-express-js-28b45848ee73
+15. 5 JWT authentication best practices for Node.js apps | Tech Tonic - Medium, accessed February 13, 2025, https://medium.com/deno-the-complete-reference/5-jwt-authentication-best-practices-for-node-js-apps-f1aaceda3f81
+16. JSON web token (JWT) authentication in NodeJS applications - Mattermost, accessed February 13, 2025, https://mattermost.com/blog/json-web-token-jwt-authentication-in-nodejs-applications/
+17. How to use JSON Web Token (JWT) in Node.js - Codedamn, accessed February 13, 2025, https://codedamn.com/news/nodejs/use-json-web-token-jwt-in-nodejs
+18. Access token - Article - SailPoint, accessed February 13, 2025, https://www.sailpoint.com/identity-library/access-token
+19. Significance of a JWT Refresh Token | Baeldung on Computer Science, accessed February 13, 2025, https://www.baeldung.com/cs/json-web-token-refresh-token
+20. JWT Token refresh explained · JonPSmith/AuthPermissions.AspNetCore Wiki - GitHub, accessed February 13, 2025, https://github.com/JonPSmith/AuthPermissions.AspNetCore/wiki/JWT-Token-refresh-explained
+21. How to Properly Secure Your JWTs | USA, accessed February 13, 2025, https://www.softwaresecured.com/post/how-to-properly-secure-your-jwts
+22. JWT attacks | Web Security Academy - PortSwigger, accessed February 13, 2025, https://portswigger.net/web-security/jwt
+23. JWT Vulnerabilities in Web Applications - Blue Goat Cyber, accessed February 13, 2025, https://bluegoatcyber.com/blog/jwt-vulnerabilities-in-web-applications/
+24. JWTs Under the Microscope: How Attackers Exploit Authentication and Authorization Weaknesses - Traceable AI, accessed February 13, 2025, https://www.traceable.ai/blog-post/jwts-under-the-microscope-how-attackers-exploit-authentication-and-authorization-weaknesses
+25. Top 7 API Authentication Methods Compared | Zuplo Blog, accessed February 13, 2025, https://zuplo.com/blog/2025/01/03/top-7-api-authentication-methods-compared

@@ -2,11 +2,14 @@ import express from "express";
 import { userController } from "../controllers/user.controller";
 import { validate } from "../middleware/validate.middleware";
 import { userSchema } from "../schemas/user.schema";
+import { authenticate, authorize } from "../middleware/auth.middleware";
 
 const router = express.Router();
 
 router.get(
   "/",
+  authenticate,
+  authorize(["admin"]),
   validate({ query: userSchema.query }),
   userController.getAll
 );
@@ -23,11 +26,7 @@ router.get(
   userController.getById
 );
 
-router.post(
-  "/",
-  validate({ body: userSchema.create }),
-  userController.create
-);
+router.post("/", validate({ body: userSchema.create }), userController.create);
 
 router.put(
   "/:id",

@@ -1,0 +1,50 @@
+### Login as Admin
+POST http://localhost:8025/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+
+### Login as Editor
+POST http://localhost:8025/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "editor@example.com",
+  "password": "editor123"
+}
+
+### Login as Viewer
+POST http://localhost:8025/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "viewer@example.com",
+  "password": "viewer123"
+}
+
+### Login with Invalid Credentials
+POST http://localhost:8025/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "wrong@example.com",
+  "password": "wrongpass"
+}
+
+### Test Protected Route (Get All Users) with Admin Token
+GET http://localhost:8025/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5NDk1NDkxLCJleHAiOjE3Mzk0OTkwOTF9.CN_x4X3e-3FyqgsDKRjvmBxiV26iO6TaTnhyUbN2kgI
+
+### Test Protected Route (Get All Users) with Editor Token (Should Fail)
+GET http://localhost:8025/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImVkaXRvckBleGFtcGxlLmNvbSIsInJvbGUiOiJlZGl0b3IiLCJpYXQiOjE3Mzk0OTU2NjAsImV4cCI6MTczOTQ5OTI2MH0.rhMdaF8tV98upMsNOdsY1ZoxbYPrgCp86Lv_Mc8UQc8
+
+### Test Protected Route (Get All Users) with Viewer Token (Should Fail)
+GET http://localhost:8025/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJlbWFpbCI6InZpZXdlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ2aWV3ZXIiLCJpYXQiOjE3Mzk0OTU2MzYsImV4cCI6MTczOTQ5OTIzNn0.fgizxkQxQQq3D2aCFdKpYH9c0qT3dNEZ4nof3AR_mtc
+
+### Test Protected Route without Token (Should Fail)
+GET http://localhost:8025/api/v1/users 

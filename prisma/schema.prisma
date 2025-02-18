@@ -11,19 +11,42 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  email     String    @unique
-  password  String
-  role      Role      @default(VIEWER)
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
+  id            String         @id @default(uuid())
+  email         String         @unique
+  password      String
+  role          Role           @default(VIEWER)
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  deletedAt     DateTime?      @map("deleted_at")
+  notifications Notification[]
 
   @@map("users")
+}
+
+model Notification {
+  id        String           @id @default(uuid())
+  title     String
+  message   String
+  isRead    Boolean          @default(false) @map("is_read")
+  type      NotificationType
+  userId    String           @map("user_id")
+  user      User             @relation(fields: [userId], references: [id])
+  createdAt DateTime         @default(now()) @map("created_at")
+  updatedAt DateTime         @updatedAt @map("updated_at")
+  deletedAt DateTime?        @map("deleted_at")
+
+  @@map("notifications")
 }
 
 enum Role {
   ADMIN
   EDITOR
   VIEWER
+}
+
+enum NotificationType {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
 }

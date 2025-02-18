@@ -13,7 +13,8 @@
     "make:controller": "etsc && node ./build/scripts/make-controller.js",
     "make:service": "etsc && node ./build/scripts/make-service.js",
     "make:schema": "etsc && node ./build/scripts/make-schema.js",
-    "make:route": "etsc && node ./build/scripts/make-route.js"
+    "make:route": "etsc && node ./build/scripts/make-route.js",
+    "seed": "etsc && node ./build/prisma/seed.js"
   },
   "keywords": [
     "pnpm",

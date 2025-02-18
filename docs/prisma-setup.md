@@ -2,6 +2,26 @@
 
 This document outlines the setup and usage of Prisma in our REST API application.
 
+## Quick Start
+
+```bash
+# 1. Install dependencies
+pnpm add -D prisma
+pnpm add @prisma/client
+
+# 2. Initialize Prisma with SQLite
+pnpm dlx prisma init --datasource-provider sqlite
+
+# 3. After defining your schema in prisma/schema.prisma
+pnpm dlx prisma generate
+
+# 4. Create and apply migrations
+pnpm dlx prisma migrate dev --name init
+
+# 5. Start Prisma Studio to manage data
+pnpm dlx prisma studio
+```
+
 ## Overview
 
 Prisma is our ORM (Object-Relational Mapping) tool that provides:
@@ -27,8 +47,14 @@ pnpm add @prisma/client
 ### 2. Project Initialization
 
 ```bash
-# Initialize Prisma in your project
-pnpm dlx prisma init
+# Initialize Prisma with SQLite
+pnpm dlx prisma init --datasource-provider sqlite
+
+# After making changes to schema.prisma
+pnpm dlx prisma generate
+
+# To view and edit data through GUI
+pnpm dlx prisma studio
 ```
 
 This creates:
@@ -36,6 +62,53 @@ This creates:
 - `prisma` directory
 - `prisma/schema.prisma` file
 - `.env` file with database connection string
+
+### 3. Adding to package.json Scripts
+
+Add these commands to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "prisma:init": "prisma init --datasource-provider sqlite",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:reset": "prisma migrate reset --force"
+  }
+}
+```
+
+## Command Execution Order
+
+1. **Initial Setup**
+
+   ```bash
+   pnpm add -D prisma
+   pnpm add @prisma/client
+   pnpm dlx prisma init --datasource-provider sqlite
+   ```
+
+2. **After Schema Changes**
+
+   ```bash
+   # Generate Prisma Client
+   pnpm dlx prisma generate
+
+   # Create and apply migration
+   pnpm dlx prisma migrate dev --name your_migration_name
+   ```
+
+3. **Database Management**
+
+   ```bash
+   # View and edit data
+   pnpm dlx prisma studio
+
+   # Reset database (if needed)
+   pnpm dlx prisma migrate reset --force
+   ```
 
 ## Database Configuration
 

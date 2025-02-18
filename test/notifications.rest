@@ -1,0 +1,50 @@
+### Get all notifications (default pagination)
+GET http://localhost:8025/api/v1/notifications
+Authorization: Bearer <token>
+
+### Get all notifications with pagination
+GET http://localhost:8025/api/v1/notifications?page=1&limit=5
+Authorization: Bearer <token>
+
+### Get unread notification count
+GET http://localhost:8025/api/v1/notifications/unread/count
+Authorization: Bearer <token>
+
+### Get notification by ID
+GET http://localhost:8025/api/v1/notifications/1
+Authorization: Bearer <token>
+
+### Create notification (as admin for any user)
+POST http://localhost:8025/api/v1/notifications
+Content-Type: application/json
+Authorization: Bearer <admin_token>
+
+{
+  "title": "Welcome!",
+  "message": "Welcome to our platform. We're glad to have you here!",
+  "type": "INFO",
+  "userId": "target_user_id"
+}
+
+### Create notification (system generated for current user)
+POST http://localhost:8025/api/v1/notifications
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "title": "Profile Updated",
+  "message": "Your profile has been successfully updated.",
+  "type": "SUCCESS"
+}
+
+### Mark notification as read
+PATCH http://localhost:8025/api/v1/notifications/1/read
+Authorization: Bearer <token>
+
+### Mark all notifications as read
+PATCH http://localhost:8025/api/v1/notifications/read/all
+Authorization: Bearer <token>
+
+### Delete notification (soft delete)
+DELETE http://localhost:8025/api/v1/notifications/1
+Authorization: Bearer <token> 

@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@ts-rest/core':
-        specifier: ^3.51.0
-        version: 3.51.0(@types/node@22.13.1)(zod@3.24.1)
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
@@ -237,17 +234,6 @@ packages:
 
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
-
-  '@ts-rest/core@3.51.0':
-    resolution: {integrity: sha512-v6lnWEcpZj1UgN9wb84XQ+EORP1QEtncFumoXMJjno5ZUV6vdjKze3MYcQN0C6vjBpIJPQEaI/gab2jr4/0KzQ==}
-    peerDependencies:
-      '@types/node': ^18.18.7 || >=20.8.4
-      zod: ^3.22.3
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      zod:
-        optional: true
 
   '@types/bcryptjs@2.4.6':
     resolution: {integrity: sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==}
@@ -1067,11 +1053,6 @@ snapshots:
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
   '@socket.io/component-emitter@3.1.2': {}
-
-  '@ts-rest/core@3.51.0(@types/node@22.13.1)(zod@3.24.1)':
-    optionalDependencies:
-      '@types/node': 22.13.1
-      zod: 3.24.1
 
   '@types/bcryptjs@2.4.6': {}
 

@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "email": "admin@example.com",
-  "password": "admin123"
+  "password": "admin@123"
 }
 
 ### Login as Editor
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 {
   "email": "editor@example.com",
-  "password": "editor123"
+  "password": "editor@123"
 }
 
 ### Login as Viewer
@@ -22,7 +22,7 @@ Content-Type: application/json
 
 {
   "email": "viewer@example.com",
-  "password": "viewer123"
+  "password": "viewer@123"
 }
 
 ### Login with Invalid Credentials
@@ -33,6 +33,10 @@ Content-Type: application/json
   "email": "wrong@example.com",
   "password": "wrongpass"
 }
+
+### Test Protected Route with Token (copy token from login response)
+GET http://localhost:8025/api/v1/users
+Authorization: Bearer <token>
 
 ### Test Protected Route (Get All Users) with Admin Token
 GET http://localhost:8025/api/v1/users

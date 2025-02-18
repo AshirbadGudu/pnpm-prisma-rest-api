@@ -13,28 +13,51 @@ GET http://localhost:8025/api/v1/users/deleted?page=1&limit=5
 ### Get user by ID
 GET http://localhost:8025/api/v1/users/1
 
-### Create new user
+### Create Admin user
 POST http://localhost:8025/api/v1/users
 Content-Type: application/json
 
 {
-  // Add your user data here
+  "email": "admin@example.com",
+  "password": "admin@123",
+  "role": "ADMIN"
 }
 
-### Update user
+### Create Editor user
+POST http://localhost:8025/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "editor@example.com",
+  "password": "editor@123",
+  "role": "EDITOR"
+}
+
+### Create Viewer user
+POST http://localhost:8025/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "viewer@example.com",
+  "password": "viewer@123",
+  "role": "VIEWER"
+}
+
+### Update user email
 PUT http://localhost:8025/api/v1/users/1
 Content-Type: application/json
 
 {
-  // Add your user data here
+  "email": "newemail@example.com",
+  "password": "newpass@123"
 }
 
-### Partial update user
+### Partial update user (change role)
 PATCH http://localhost:8025/api/v1/users/1
 Content-Type: application/json
 
 {
-  // Add partial user data here
+  "role": "EDITOR"
 }
 
 ### Soft delete user

@@ -1,4 +1,4 @@
-import { Express } from "express";
+import express, { Express } from "express";
 import { readdirSync } from "fs";
 import { join } from "path";
 import { errorHandler, notFoundMiddleware } from "./error.middleware";

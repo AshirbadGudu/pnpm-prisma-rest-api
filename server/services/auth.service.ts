@@ -1,27 +1,64 @@
-// Added RBAC helper functions
-export interface User {
-  id: string;
-  email: string;
-  password: string;
-  role: string;
+import { PrismaClient } from "@prisma/client";
+import type { User } from "@prisma/client";
+import bcryptjs from "bcryptjs";
+import { signToken } from "../utils/jwt";
+
+const prisma = new PrismaClient();
+
+interface LoginResponse {
+  token: string;
+  user: Omit<User, "password">;
 }
 
-const users: User[] = [
-  { id: "1", email: "admin@example.com", password: "admin123", role: "admin" },
-  {
-    id: "2",
-    email: "editor@example.com",
-    password: "editor123",
-    role: "editor",
-  },
-  {
-    id: "3",
-    email: "viewer@example.com",
-    password: "viewer123",
-    role: "viewer",
-  },
-];
-
 export async function getUserByEmail(email: string): Promise<User | null> {
-  return users.find((user) => user.email === email) || null;
+  console.log("Searching for user with email:", email);
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+      deletedAt: null, // Only get active users
+    },
+  });
+  console.log("Found user:", user ? "Yes" : "No");
+  return user;
+}
+
+export async function verifyPassword(
+  plainPassword: string,
+  hashedPassword: string
+): Promise<boolean> {
+  console.log("Verifying password");
+  const isValid = await bcryptjs.compare(plainPassword, hashedPassword);
+  console.log("Password valid:", isValid);
+  return isValid;
+}
+
+export async function login(
+  email: string,
+  password: string
+): Promise<LoginResponse> {
+  console.log("Login attempt for email:", email);
+  const user = await getUserByEmail(email);
+  if (!user) {
+    throw new Error("Invalid credentials");
+  }
+
+  const isPasswordValid = await verifyPassword(password, user.password);
+  if (!isPasswordValid) {
+    throw new Error("Invalid credentials");
+  }
+
+  // Create JWT token using our utility
+  const token = signToken({
+    id: user.id,
+    email: user.email,
+    role: user.role,
+  });
+
+  // Remove password from user object
+  const { password: _, ...userWithoutPassword } = user;
+
+  return {
+    token,
+    user: userWithoutPassword,
+  };
 }

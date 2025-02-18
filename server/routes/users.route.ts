@@ -6,13 +6,7 @@ import { authenticate, authorize } from "../middleware/auth.middleware";
 
 const router = express.Router();
 
-router.get(
-  "/",
-  authenticate,
-  authorize(["admin"]),
-  validate({ query: userSchema.query }),
-  userController.getAll
-);
+router.get("/", userController.getAll);
 
 router.get(
   "/deleted",
@@ -26,7 +20,7 @@ router.get(
   userController.getById
 );
 
-router.post("/", validate({ body: userSchema.create }), userController.create);
+router.post("/", userController.create);
 
 router.put(
   "/:id",

@@ -1,21 +1,42 @@
+@URL = http://{{HOST}}:{{PORT}}/{{API_PREFIX}}/{{API_VERSION}}
+
+@AUTH_TOKEN = {{loginAdmin.response.body.token}}
+
+
+### Login as Admin
+# @name loginAdmin
+POST {{URL}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin@123"
+}
+
+
 ### Get all users (default pagination)
-GET http://localhost:8025/api/v1/users
+GET {{URL}}/users
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get all users with pagination
-GET http://localhost:8025/api/v1/users?page=1&limit=5
+GET {{URL}}/users?page=1&limit=5
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get deleted users
-GET http://localhost:8025/api/v1/users/deleted
+GET {{URL}}/users/deleted
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get deleted users with pagination
-GET http://localhost:8025/api/v1/users/deleted?page=1&limit=5
+GET {{URL}}/users/deleted?page=1&limit=5
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get user by ID
-GET http://localhost:8025/api/v1/users/1
+GET {{URL}}/users/1
 
 ### Create Admin user
-POST http://localhost:8025/api/v1/users
+POST {{URL}}/users
 Content-Type: application/json
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "email": "admin@example.com",
@@ -24,8 +45,9 @@ Content-Type: application/json
 }
 
 ### Create Editor user
-POST http://localhost:8025/api/v1/users
+POST {{URL}}/users
 Content-Type: application/json
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "email": "editor@example.com",
@@ -34,8 +56,9 @@ Content-Type: application/json
 }
 
 ### Create Viewer user
-POST http://localhost:8025/api/v1/users
+POST {{URL}}/users
 Content-Type: application/json
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "email": "viewer@example.com",
@@ -44,8 +67,9 @@ Content-Type: application/json
 }
 
 ### Update user email
-PUT http://localhost:8025/api/v1/users/1
+PUT {{URL}}/users/1
 Content-Type: application/json
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "email": "newemail@example.com",
@@ -53,18 +77,22 @@ Content-Type: application/json
 }
 
 ### Partial update user (change role)
-PATCH http://localhost:8025/api/v1/users/1
+PATCH {{URL}}/users/1
 Content-Type: application/json
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "role": "EDITOR"
 }
 
 ### Soft delete user
-DELETE http://localhost:8025/api/v1/users/1
+DELETE {{URL}}/users/1
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Hard delete user (permanent)
-DELETE http://localhost:8025/api/v1/users/1/permanent
+DELETE {{URL}}/users/1/permanent
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Recover deleted user
-POST http://localhost:8025/api/v1/users/1/recover
+POST {{URL}}/users/1/recover
+Authorization: Bearer {{AUTH_TOKEN}}

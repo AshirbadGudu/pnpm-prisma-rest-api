@@ -1,23 +1,38 @@
+@URL = http://{{HOST}}:{{PORT}}/{{API_PREFIX}}/{{API_VERSION}}
+
+@AUTH_TOKEN = {{loginAdmin.response.body.token}}
+
+
+### Login as Admin
+# @name loginAdmin
+POST {{URL}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin@123"
+}
+
 ### Get all notifications (default pagination)
-GET http://localhost:8025/api/v1/notifications
-Authorization: Bearer <token>
+GET {{URL}}/notifications
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get all notifications with pagination
-GET http://localhost:8025/api/v1/notifications?page=1&limit=5
-Authorization: Bearer <token>
+GET {{URL}}/notifications?page=1&limit=5
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get unread notification count
-GET http://localhost:8025/api/v1/notifications/unread/count
-Authorization: Bearer <token>
+GET {{URL}}/notifications/unread/count
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Get notification by ID
-GET http://localhost:8025/api/v1/notifications/1
-Authorization: Bearer <token>
+GET {{URL}}/notifications/1
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Create notification (as admin for any user)
-POST http://localhost:8025/api/v1/notifications
+POST {{URL}}/notifications
 Content-Type: application/json
-Authorization: Bearer <admin_token>
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "title": "Welcome!",
@@ -27,9 +42,9 @@ Authorization: Bearer <admin_token>
 }
 
 ### Create notification (system generated for current user)
-POST http://localhost:8025/api/v1/notifications
+POST {{URL}}/notifications
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer {{AUTH_TOKEN}}
 
 {
   "title": "Profile Updated",
@@ -38,13 +53,13 @@ Authorization: Bearer <token>
 }
 
 ### Mark notification as read
-PATCH http://localhost:8025/api/v1/notifications/1/read
-Authorization: Bearer <token>
+PATCH {{URL}}/notifications/1/read
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Mark all notifications as read
-PATCH http://localhost:8025/api/v1/notifications/read/all
-Authorization: Bearer <token>
+PATCH {{URL}}/notifications/read/all
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ### Delete notification (soft delete)
-DELETE http://localhost:8025/api/v1/notifications/1
-Authorization: Bearer <token> 
+DELETE {{URL}}/notifications/1
+Authorization: Bearer {{AUTH_TOKEN}} 
